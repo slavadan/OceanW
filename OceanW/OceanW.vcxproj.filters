@@ -56,5 +56,8 @@
     <ClInclude Include="vector2.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Citizen\Predator\shark.h">
+      <Filter>Файлы заголовков\Citizen\Predator</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

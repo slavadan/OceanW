@@ -147,6 +147,7 @@
     <ClInclude Include="citizen.h" />
     <ClInclude Include="Citizen\plankton.h" />
     <ClInclude Include="Citizen\predator.h" />
+    <ClInclude Include="Citizen\Predator\shark.h" />
     <ClInclude Include="Field\field.h" />
     <ClInclude Include="Field\sqare.h" />
     <ClInclude Include="game.h" />
