@@ -13,12 +13,13 @@ public:
 		LEFT
 	};
 
-	Citizen(int maxActionPoints):
+	Citizen(int maxActionPoints, const Vector2& position):
 		_healthPoints(100), _actionPoints(maxActionPoints),
-		_maxHealthPoints(100), _maxActionPoints(maxActionPoints)
+		_maxHealthPoints(100), _maxActionPoints(maxActionPoints),
+		_position(position)
 	{}
 
-	void move(Direction direction);
+	void Move(Direction direction);
 	void RestoreActionPoints() { _actionPoints = _maxActionPoints; }
 
 	virtual void lifeCycle() = 0;
