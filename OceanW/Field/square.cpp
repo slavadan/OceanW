@@ -1,6 +1,6 @@
-#include "sqare.h"
+#include "square.h"
 
-void Sqare::GetIn(Citizen* citizen)
+void Square::GetIn(Citizen* citizen)
 {
 	if (_status == STATUS::FULL || _citizenCount > _maxCitizenCount)
 		return;
@@ -18,6 +18,7 @@ void Sqare::GetIn(Citizen* citizen)
 		_predatorCount++;
 	}
 
+
 	for(int i = 0; i < _maxCitizenCount; i++)
 		if (_sqare[i] == nullptr)
 		{
@@ -25,12 +26,13 @@ void Sqare::GetIn(Citizen* citizen)
 			break;
 		}
 
+
 	_citizenCount++;
 
 	ChangeStatus();
 }
 
-void Sqare::GetOff(Citizen* citizen)
+void Square::GetOff(Citizen* citizen)
 {
 
 	for (int i = 0; i < _maxCitizenCount; i++)
@@ -55,7 +57,7 @@ void Sqare::GetOff(Citizen* citizen)
 	ChangeStatus();
 }
 
-void Sqare::ChangeStatus()
+void Square::ChangeStatus()
 {
 	if (_citizenCount == 0)
 		_status = STATUS::EMPTY;

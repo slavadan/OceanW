@@ -33,7 +33,7 @@
     <ClCompile Include="Citizen\predator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Field\sqare.cpp">
+    <ClCompile Include="Field\square.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,9 +47,6 @@
     <ClInclude Include="Field\field.h">
       <Filter>Файлы заголовков\Field</Filter>
     </ClInclude>
-    <ClInclude Include="Field\sqare.h">
-      <Filter>Файлы заголовков\Field</Filter>
-    </ClInclude>
     <ClInclude Include="Citizen\plankton.h">
       <Filter>Файлы заголовков\Citizen</Filter>
     </ClInclude>
@@ -61,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Citizen\Predator\shark.h">
       <Filter>Файлы заголовков\Citizen\Predator</Filter>
+    </ClInclude>
+    <ClInclude Include="Field\square.h">
+      <Filter>Файлы заголовков\Field</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

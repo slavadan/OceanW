@@ -4,7 +4,7 @@
 #include <vector>
 
 
-class Sqare
+class Square
 {
 public:
 
@@ -15,7 +15,7 @@ public:
 		FULL
 	};
 
-	Sqare():
+	Square():
 		_status(STATUS::EMPTY), _citizenCount(0),
 		_maxCitizenCount(4), _planktonCount(0),
 		_maxPlanktonCount(1), _predatorCount(0)

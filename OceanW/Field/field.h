@@ -1,5 +1,5 @@
 #pragma once
-#include "sqare.h"
+#include "square.h"
 
 class Field
 {
@@ -11,10 +11,10 @@ public:
 
 		for (int y = 0; y < _sizeY; y++)
 		{
-			std::vector<Sqare> in;
+			std::vector<Square> in;
 			for (int x = 0; x < _sizeX; x++)
 			{
-				Sqare sq;
+				Square sq;
 				in.push_back(sq);
 			}
 			_map.push_back(in);
@@ -35,6 +35,6 @@ public:
 private:
 	int _sizeX, _sizeY;
 
-	std::vector<std::vector<Sqare>> _map;
+	std::vector<std::vector<Square>> _map;
 
 };
