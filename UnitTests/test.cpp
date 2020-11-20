@@ -1,6 +1,11 @@
 #include "pch.h"
+#include "../OceanW/Field/field.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST(SqareTest, sqare_plankton) 
+{
+	Plankton plankton();
+
+	Sqare sqare;
+
+	EXPECT_EQ(Sqare::STATUS::EMPTY, sqare.GetStatus());
 }

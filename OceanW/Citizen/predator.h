@@ -26,7 +26,6 @@ public:
 	Predator* reproduction(Citizen* predator);
 
 protected:
-	int _bodySize;
 
 	int _hungerPoints;
 	const int _maxHungerPoints;

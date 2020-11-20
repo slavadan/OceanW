@@ -19,14 +19,13 @@ public:
 			}
 			_map.push_back(in);
 		}
-		//set_coords();
 
 	}
 
-	int get_sizeX();
-	int get_sizeY();
+	int GetSizeX() { return _sizeX; }
+	int GetSizeY() { return _sizeY; }
 
-	//void set_coords();
+
 
 	auto& operator[](const int index)
 	{
