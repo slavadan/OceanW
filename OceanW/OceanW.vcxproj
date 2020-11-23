@@ -141,7 +141,8 @@
   <ItemGroup>
     <ClCompile Include="citizen.cpp" />
     <ClCompile Include="Citizen\predator.cpp" />
-    <ClCompile Include="Field\square.cpp" />
+    <ClCompile Include="Game\game.cpp" />
+    <ClCompile Include="Game\square.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +150,8 @@
     <ClInclude Include="Citizen\plankton.h" />
     <ClInclude Include="Citizen\predator.h" />
     <ClInclude Include="Citizen\Predator\shark.h" />
-    <ClInclude Include="Field\field.h" />
-    <ClInclude Include="Field\square.h" />
-    <ClInclude Include="game.h" />
+    <ClInclude Include="Game\game.h" />
+    <ClInclude Include="Game\square.h" />
     <ClInclude Include="vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

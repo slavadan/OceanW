@@ -16,11 +16,11 @@
     <Filter Include="Файлы заголовков\Citizen">
       <UniqueIdentifier>{3ba96141-1a70-471d-ab36-79e505fc0241}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Field">
-      <UniqueIdentifier>{75afa3eb-3a2d-4961-aade-37eae1b7e74f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Citizen\Predator">
       <UniqueIdentifier>{c4dd5146-2003-4b18-8c7a-424d0c457e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game">
+      <UniqueIdentifier>{75afa3eb-3a2d-4961-aade-37eae1b7e74f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,19 +33,16 @@
     <ClCompile Include="Citizen\predator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Field\square.cpp">
+    <ClCompile Include="Game\square.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="citizen.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Field\field.h">
-      <Filter>Файлы заголовков\Field</Filter>
     </ClInclude>
     <ClInclude Include="Citizen\plankton.h">
       <Filter>Файлы заголовков\Citizen</Filter>
@@ -59,8 +56,11 @@
     <ClInclude Include="Citizen\Predator\shark.h">
       <Filter>Файлы заголовков\Citizen\Predator</Filter>
     </ClInclude>
-    <ClInclude Include="Field\square.h">
-      <Filter>Файлы заголовков\Field</Filter>
+    <ClInclude Include="Game\game.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\square.h">
+      <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

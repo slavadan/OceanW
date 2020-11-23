@@ -13,7 +13,7 @@ public:
 		LEFT
 	};
 
-	Citizen(int maxActionPoints, const Vector2& position):
+	Citizen(int maxActionPoints, const Vector2 position):
 		_healthPoints(100), _actionPoints(maxActionPoints),
 		_maxHealthPoints(100), _maxActionPoints(maxActionPoints),
 		_position(position)

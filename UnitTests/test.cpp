@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../OceanW/Field/field.h"
+#include "../OceanW/Game/game.h"
 
 TEST(SqareTest, sqare_plankton) 
 {
@@ -70,4 +70,13 @@ TEST(SqareTest, SqarePlanktonAndPredator)
 	EXPECT_EQ(0, square.GetCitizenCount());
 	EXPECT_EQ(0, square.GetPlantCount());
 	EXPECT_EQ(0, square.GetPredatorCount());
+}
+
+TEST(sdf, sdf1)
+{
+	Game game(4, 4);
+
+	int a = 5;
+
+	
 }

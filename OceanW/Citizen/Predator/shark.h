@@ -5,12 +5,14 @@ class Shark : public Predator
 {
 public:
 
-	Shark(const Vector2& position, Gender sex):
+	Shark(const Vector2 position, Gender sex):
 		Predator(2, position, 50, 8, 2, sex)
 	{}
 
 	void lifeCycle() override { }
 
 private:
+
+	const int id = 2;
 
 };

@@ -28,7 +28,7 @@ public:
 	int GetSize() { return _maxCitizenCount; }
 	int GetCitizenCount() { return _citizenCount; }
 
-	void GetIn(Citizen* citizen);
+	bool GetIn(Citizen* citizen);
 	void GetOff(Citizen* citizen);
 
 	STATUS GetStatus() { return _status; }

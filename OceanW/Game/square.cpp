@@ -1,16 +1,16 @@
 #include "square.h"
 
-void Square::GetIn(Citizen* citizen)
+bool Square::GetIn(Citizen* citizen)
 {
 	if (_status == STATUS::FULL || _citizenCount > _maxCitizenCount)
-		return;
+		return false;
 
 	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
 	
 	if (myPlankton)
 	{
 		if (_planktonCount >= _maxPlanktonCount)
-			return;
+			return false;
 		_planktonCount++;
 	}
 	else
@@ -30,6 +30,7 @@ void Square::GetIn(Citizen* citizen)
 	_citizenCount++;
 
 	ChangeStatus();
+	return true;
 }
 
 void Square::GetOff(Citizen* citizen)
