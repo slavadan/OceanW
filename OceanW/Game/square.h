@@ -33,11 +33,8 @@ public:
 
 	STATUS GetStatus() { return _status; }
 
+	auto& operator[](int index) { return _sqare[index]; }
 
-	auto& operator[](const int index)
-	{
-		return _sqare[index];
-	}
 
 private:
 

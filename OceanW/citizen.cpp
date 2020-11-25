@@ -1,9 +1,9 @@
 #include "citizen.h"
 
-void Citizen::Move(Direction direction)
+bool Citizen::Move(Direction direction)
 {
 	if (!HasActionPoints())
-		return;
+		return false;
 
 	switch (direction)
 	{
@@ -25,4 +25,7 @@ void Citizen::Move(Direction direction)
 	}
 
 	_actionPoints--;
+	//Notify(EVENT::MOVE, this);
+	return true;
+	
 }

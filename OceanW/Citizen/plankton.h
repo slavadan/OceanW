@@ -9,11 +9,14 @@ public:
 		Citizen(1, position)
 	{}
 
-	void lifeCycle() override {}
+	void lifeCycle() override;
 
+	bool reproduction();
+
+	int GetClassID() override { return id; }
 
 private:
 
-	const int id = 1;
+	static const int id = 1;
 
 };

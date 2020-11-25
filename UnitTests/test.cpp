@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../OceanW/Game/game.h"
+#include "../OceanW/game.h"
 
 TEST(SqareTest, sqare_plankton) 
 {
@@ -74,7 +74,7 @@ TEST(SqareTest, SqarePlanktonAndPredator)
 
 TEST(sdf, sdf1)
 {
-	Game game(4, 4);
+	Game game(4, 4, 6);
 
 	int a = 5;
 

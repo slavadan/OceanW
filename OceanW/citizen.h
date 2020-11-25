@@ -1,5 +1,6 @@
 #pragma once
 #include "vector2.h"
+#include <list>
 
 class Citizen
 {
@@ -19,7 +20,7 @@ public:
 		_position(position)
 	{}
 
-	void Move(Direction direction);
+	bool Move(Direction direction);
 	void RestoreActionPoints() { _actionPoints = _maxActionPoints; }
 
 	virtual void lifeCycle() = 0;
@@ -28,6 +29,9 @@ public:
 
 	float GetHealthPoints() { return _healthPoints; }
 	Vector2 GetPosition() { return _position; }
+
+	virtual int GetClassID() = 0;
+
 
 protected:
 

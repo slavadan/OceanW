@@ -7,12 +7,18 @@ public:
 
 	Shark(const Vector2 position, Gender sex):
 		Predator(2, position, 50, 8, 2, sex)
-	{}
+	{
+		
+	}
 
-	void lifeCycle() override { }
+	void lifeCycle() override;
+	
+	int GetClassID() override { return id; }
+	bool eat(Citizen* citizen) override;
+
+	bool reproduction(Citizen* predator) override;
 
 private:
 
-	const int id = 2;
-
+	static const int id = 2;
 };
