@@ -15,6 +15,8 @@ public:
 
 	int GetClassID() override { return id; }
 
+	virtual bool eat() override { return false; };
+
 private:
 
 	static const int id = 1;

@@ -26,7 +26,7 @@ public:
 
 class ISubject
 {
-public:
+protected:
 
 	virtual ~ISubject() {}
 	virtual void Attach(IObserver* observer) = 0;
@@ -37,7 +37,7 @@ public:
 
 class Subject : public ISubject
 {
-public:
+protected:
 	
 	void Attach(IObserver* observer) override { _observerList.push_back(observer); }
 	void Detach(IObserver* observer) override { _observerList.remove(observer); }
@@ -46,4 +46,5 @@ public:
 protected:
 
 	std::list<IObserver*> _observerList;
+	friend class Game;
 };

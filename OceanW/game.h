@@ -35,13 +35,22 @@ public:
 
 	int GetSizeX() { return _sizeX; }
 	int GetSizeY() { return _sizeY; }
-
-	void SelectCitizen() { selectedCitizen = *_citizenList.begin(); }
-
-	Citizen* selectedCitizen = nullptr;
 	
+	void SelectSquare(int coordX, int coordY) { selectedSquare = &_map[coordY][coordX]; }
+	void SelectCitizen(Square& square, int index) { 
+		if (square.CheckSlot(index))
+			selectedCitizen = square[index];
+		else
+			selectedCitizen = nullptr;
+	}
+
 
 	auto& operator[](const int index) { return _map[index]; }
+
+	void EndTurn();
+
+	Square* selectedSquare = nullptr;
+	Citizen* selectedCitizen = nullptr;
 
 private:
 	
@@ -52,6 +61,7 @@ private:
 	void MoveUpdate(Citizen* citizen, Vector2 OldCoords) override;
 	void DeathUpdate(Citizen* citizen) override;
 	void SpawnUpdate(Citizen* citizen) override;
+	
 
 	int _sizeX, _sizeY;
 
@@ -62,6 +72,6 @@ private:
 	std::vector<int> _idList = {1, 2};
 
 	
-	int _citizenCount;
 
+	int _citizenCount;
 };

@@ -25,10 +25,10 @@ public:
 	int GetHungerPoints() { return _hungerPoints; }
 
 	void UpdateHungerPoints() { _hungerPoints += 3; }
-
-	virtual bool eat(Citizen* citizen) = 0;
 	
 	virtual bool reproduction(Citizen* predator) = 0;
+
+	virtual bool eat() override;
 
 protected:
 

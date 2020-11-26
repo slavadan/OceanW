@@ -72,11 +72,7 @@ TEST(SqareTest, SqarePlanktonAndPredator)
 	EXPECT_EQ(0, square.GetPredatorCount());
 }
 
-TEST(sdf, sdf1)
+TEST(ss, sss)
 {
-	Game game(4, 4, 6);
-	
-	game.SelectCitizen();
-	
-	game.selectedCitizen->Move(Citizen::Direction::RIGHT);
+	int a = 5;
 }

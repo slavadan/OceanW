@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['_5factionpoints',['_actionPoints',['../class_citizen.html#ad1401092e51608c501bb0801b2d7ef4e',1,'Citizen']]],
+  ['_5fage',['_age',['../class_predator.html#aff2b3ea434963310f3e23e875d420656',1,'Predator']]],
+  ['_5fbodysize',['_bodySize',['../class_predator.html#a774d13aace42242ceb11f194e2af8895',1,'Predator']]],
+  ['_5ffoodid',['_foodID',['../class_predator.html#a34e568556382c731b2615fd52be320a6',1,'Predator']]],
+  ['_5fhealthpoints',['_healthPoints',['../class_citizen.html#ab2755a9e2673b16cb5b69c5ff838b8f8',1,'Citizen']]],
+  ['_5fhungercycle',['_hungerCycle',['../class_predator.html#af37c53cb455ba4b407dea37c8d6c162f',1,'Predator']]],
+  ['_5fhungerpoints',['_hungerPoints',['../class_predator.html#a858403d5c176baeb6321c75b987d6bda',1,'Predator']]],
+  ['_5fmaxactionpoints',['_maxActionPoints',['../class_citizen.html#a6e2d25851dfccbf981530e0b13d74d09',1,'Citizen']]],
+  ['_5fmaxage',['_maxAge',['../class_predator.html#a3b728fc13625b874e9e0720584f17f02',1,'Predator']]],
+  ['_5fmaxhealthpoints',['_maxHealthPoints',['../class_citizen.html#aa01f9b9825edc7a026f7f89d4bceac24',1,'Citizen']]],
+  ['_5fmaxhungercycle',['_maxHungerCycle',['../class_predator.html#a8d830a2b0fb16dab38b359ed45753cc4',1,'Predator']]],
+  ['_5fmaxhungerpoints',['_maxHungerPoints',['../class_predator.html#a59a073e8ff6550cf193098bba702bb32',1,'Predator']]],
+  ['_5fobserverlist',['_observerList',['../class_subject.html#aa50a2199ba06fc30f55cb9c345aac513',1,'Subject']]],
+  ['_5fposition',['_position',['../class_citizen.html#ac6faf57df5043ba7356e69f89219366e',1,'Citizen']]],
+  ['_5fselectedcitizen',['_selectedCitizen',['../class_citizen.html#aa3e171c8c2aba4cce3a95a583dbd73c3',1,'Citizen']]],
+  ['_5fsex',['_sex',['../class_predator.html#a206d380a114ae6c05eee1c3f32adab66',1,'Predator']]]
+];

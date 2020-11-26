@@ -17,27 +17,6 @@ void Shark::lifeCycle()
 	RestoreActionPoints();
 }
 
-bool Shark::eat(Citizen* citizen)
-{
-	if (!HasActionPoints())
-		return false;
-
-	Vector2 tempPosition = citizen->GetPosition();
-	int citizenClassId = citizen->GetClassID();
-
-	if(tempPosition.x == _position.x && _position.y == tempPosition.y)
-
-	for(int i = 0; i < _foodID.size(); i++)
-		if (_foodID[i] == citizenClassId)
-		{
-			UpdateHungerPoints();
-			citizen->Death();
-			_actionPoints--;
-			return true;
-		}
-	
-}
-
 bool Shark::reproduction(Citizen* predator)
 {
 	Predator* myPredator = dynamic_cast<Predator*>(predator);

@@ -1,20 +1,20 @@
 #include "citizen.h"
 
-void Citizen::Move(Direction direction)
+bool Citizen::Move(Direction direction)
 {
 	if (!HasActionPoints())
-		return;
+		return false;
 
 	Vector2 oldCoords = this->GetPosition();
 
 	switch (direction)
 	{
 	case Direction::UP:
-		_position.y += 1;
+		_position.y -= 1;
 		break;
 
 	case Direction::DOWN:
-		_position.y -= 1;
+		_position.y += 1;
 		break;
 
 	case Direction::LEFT:
@@ -28,7 +28,7 @@ void Citizen::Move(Direction direction)
 
 	_actionPoints--;
 	Notify(EVENT::MOVE, oldCoords);
-	return;
+	return true;
 	
 }
 

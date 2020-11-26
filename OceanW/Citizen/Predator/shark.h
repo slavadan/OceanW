@@ -14,7 +14,6 @@ public:
 	void lifeCycle() override;
 	
 	int GetClassID() override { return id; }
-	bool eat(Citizen* citizen) override;
 
 	bool reproduction(Citizen* predator) override;
 

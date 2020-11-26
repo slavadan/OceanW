@@ -21,8 +21,7 @@ public:
 		_position(position)
 	{}
 
-	void Move(Direction direction);
-	void RestoreActionPoints() { _actionPoints = _maxActionPoints; }
+	bool Move(Direction direction);
 
 	virtual void lifeCycle() = 0;
 
@@ -31,17 +30,23 @@ public:
 	float GetHealthPoints() { return _healthPoints; }
 
 	Vector2 GetPosition() { return _position; }
+
 	void SetPosition(Vector2 position) { _position = position; }
 
 	virtual int GetClassID() = 0;
 
-	void Death() { Notify(EVENT::DEATH, 0); delete this; }
-	
-	void UpdateHealth() { _healthPoints = _maxHealthPoints; }
+	virtual bool eat()  = 0;
 
+	void SelectCitizen(Citizen* citizen) { _selectedCitizen = citizen; }
+
+	void Death() { Notify(EVENT::DEATH, 0); delete this; }
 protected:
 
 	void Notify(EVENT type, Vector2 OldCoords) override;
+
+	void UpdateHealth() { _healthPoints = _maxHealthPoints; }
+
+	void RestoreActionPoints() { _actionPoints = _maxActionPoints; }
 
 	float _healthPoints;
 	int _actionPoints;
@@ -50,4 +55,6 @@ protected:
 	const int _maxActionPoints;
 
 	Vector2 _position;
+
+	Citizen* _selectedCitizen = nullptr;
 };

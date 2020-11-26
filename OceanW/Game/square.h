@@ -28,13 +28,19 @@ public:
 	int GetSize() { return _maxCitizenCount; }
 	int GetCitizenCount() { return _citizenCount; }
 
-	bool GetIn(Citizen* citizen);
+	void GetIn(Citizen* citizen);
 	void GetOff(Citizen* citizen);
 
 	STATUS GetStatus() { return _status; }
 
 	auto& operator[](int index) { return _sqare[index]; }
 
+	int GetID(int index) { return _sqare[index]->GetClassID(); }
+	bool CheckSlot(int index) { 
+		if (_sqare[index] == nullptr)
+			return false;
+		else true;
+	}
 
 private:
 

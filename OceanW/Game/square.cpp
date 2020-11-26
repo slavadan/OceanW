@@ -1,36 +1,35 @@
 #include "square.h"
 
-bool Square::GetIn(Citizen* citizen)
+void Square::GetIn(Citizen* citizen)
 {
 	if (_status == STATUS::FULL || _citizenCount > _maxCitizenCount)
-		return false;
+		return;
 
-	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
 	
-	if (myPlankton)
+	
+	if (citizen->GetClassID() == 1)
 	{
 		if (_planktonCount >= _maxPlanktonCount)
-			return false;
+			return;
 		_planktonCount++;
 	}
 	else
 	{
+		if (_predatorCount >= _maxCitizenCount)
+			return;
 		_predatorCount++;
 	}
 
 
-	for(int i = 0; i < _maxCitizenCount; i++)
+	for(int i = 0; i < 4; i++)
 		if (_sqare[i] == nullptr)
 		{
 			_sqare[i] = citizen;
-			break;
+			_citizenCount++;
+			ChangeStatus();
+			return;
 		}
 
-
-	_citizenCount++;
-
-	ChangeStatus();
-	return true;
 }
 
 void Square::GetOff(Citizen* citizen)

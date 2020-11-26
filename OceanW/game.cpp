@@ -23,48 +23,57 @@ bool Game::SpawnCitizen(int citizenClass, Vector2& pos)
 		return false;
 	}
 
-	if (_map[pos.y][pos.x].GetIn(citizen))
-	{
-		_citizenList.push_back(citizen);
-	}
-	else
-		return false;
+	if (citizen->GetClassID() == 1)
+		if (_map[pos.y][pos.x].GetPlantCount() > 1)
+			return false;
+	
+	if (citizen->GetClassID() != 1)
+		if (_map[pos.y][pos.x].GetPredatorCount() >= 4)
+			return false;
+
+
+
+	_citizenList.push_back(citizen);
+	_map[pos.y][pos.x].GetIn(citizen);
 
 }
 
 void Game::MoveUpdate(Citizen* citizen, Vector2 OldCoords)
 {
-	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
-
 	Vector2 NowCoords = citizen->GetPosition();
 
-	if (myPlankton)
+	bool check = false;
+
+
+	if (citizen->GetClassID() == 1)
 	{
 		if (_map[NowCoords.y][NowCoords.x].GetPlantCount() < 1)
 		{
-			_map[NowCoords.y][NowCoords.x].GetIn(citizen);
-			_map[OldCoords.y][OldCoords.x].GetOff(citizen);
-			return;
+			check = true;
 		}
+		else
+			citizen->SetPosition(OldCoords);
 	}
 	else
+		if (_map[NowCoords.y][NowCoords.x].GetPredatorCount() <= 4)
+			check = true;
+		else
+			citizen->SetPosition(OldCoords);
+
+	if (check)
 	{
-		if (_map[NowCoords.y][NowCoords.x].GetPredatorCount() < 4)
-		{
-			_map[NowCoords.y][NowCoords.x].GetIn(citizen);
-			_map[OldCoords.y][OldCoords.x].GetOff(citizen);
-			return;
-		}
+		_map[NowCoords.y][NowCoords.x].GetIn(citizen);
+		_map[OldCoords.y][OldCoords.x].GetOff(citizen);
 	}
-
-	citizen->SetPosition(OldCoords);
-
+	
 }
 
 void Game::DeathUpdate(Citizen* citizen)
 {
+
 	Vector2 coords = citizen->GetPosition();
 	_map[coords.y][coords.x].GetOff(citizen);
+	_citizenList.remove(citizen);
 	
 }
 
@@ -143,6 +152,17 @@ void Game::SpawnUpdate(Citizen* citizen)
 		}
 	}
 	SpawnCitizen(citizenClassID, position);
+}
+
+void Game::EndTurn()
+{
+	std::list<Citizen*>::iterator iterator = _citizenList.begin();
+
+	while (iterator != _citizenList.end())
+	{
+		(*iterator)->lifeCycle();
+		iterator++;
+	}
 }
 
 void Game::Generate()
