@@ -14,6 +14,9 @@ bool Plankton::reproduction()
 	if (!HasActionPoints())
 		return false;
 	else
+	{
+		Notify(EVENT::SPAWN, 0);
 		return true;
+	}
 
 }

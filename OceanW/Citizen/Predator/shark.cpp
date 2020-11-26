@@ -2,11 +2,17 @@
 
 void Shark::lifeCycle()
 {
-	if (_age == _maxAge)
-		int a = 5;
+	if (_age >= _maxAge || _hungerCycle >= _maxHungerCycle)
+		Death();
 
 	_hungerPoints--;
 	_age++;
+
+	if (_hungerPoints <= 0)
+	{
+		_hungerPoints = 0;
+		_hungerCycle++;
+	}
 	
 	RestoreActionPoints();
 }
@@ -25,6 +31,7 @@ bool Shark::eat(Citizen* citizen)
 		if (_foodID[i] == citizenClassId)
 		{
 			UpdateHungerPoints();
+			citizen->Death();
 			_actionPoints--;
 			return true;
 		}
@@ -47,8 +54,7 @@ bool Shark::reproduction(Citizen* predator)
 		return false;
 	else
 	{
-
-
+		Notify(EVENT::SPAWN, 0);
 		_actionPoints--;
 		return true;
 	}

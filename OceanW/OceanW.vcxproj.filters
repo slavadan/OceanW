@@ -80,5 +80,8 @@
     <ClInclude Include="UI\console.h">
       <Filter>Файлы заголовков\UI</Filter>
     </ClInclude>
+    <ClInclude Include="observer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

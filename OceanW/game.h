@@ -1,7 +1,7 @@
 #pragma once
 #include "Game/square.h"
 
-class Game
+class Game: public IObserver
 {
 public:
 
@@ -24,11 +24,21 @@ public:
 
 		Generate();
 		
+		std::list<Citizen*>::iterator iterator = _citizenList.begin();
+		while (iterator != _citizenList.end())
+		{
+			(*iterator)->Attach(this);
+			++iterator;
+		}
+
 	}
 
 	int GetSizeX() { return _sizeX; }
 	int GetSizeY() { return _sizeY; }
 
+	void SelectCitizen() { selectedCitizen = *_citizenList.begin(); }
+
+	Citizen* selectedCitizen = nullptr;
 	
 
 	auto& operator[](const int index) { return _map[index]; }
@@ -36,13 +46,18 @@ public:
 private:
 	
 	void Generate();
+
 	bool SpawnCitizen(int citizenClass, Vector2& pos);
+
+	void MoveUpdate(Citizen* citizen, Vector2 OldCoords) override;
+	void DeathUpdate(Citizen* citizen) override;
+	void SpawnUpdate(Citizen* citizen) override;
 
 	int _sizeX, _sizeY;
 
 	std::vector<std::vector<Square>> _map;
 
-	std::vector<Citizen*> _citizenList;
+	std::list<Citizen*> _citizenList;
 
 	std::vector<int> _idList = {1, 2};
 

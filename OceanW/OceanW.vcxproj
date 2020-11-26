@@ -155,6 +155,7 @@
     <ClInclude Include="Citizen\Predator\shark.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Game\square.h" />
+    <ClInclude Include="observer.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UI\console.h" />
     <ClInclude Include="vector2.h" />

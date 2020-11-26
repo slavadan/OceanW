@@ -35,6 +35,9 @@ protected:
 	int _hungerPoints;
 	const int _maxHungerPoints;
 
+	int _hungerCycle = 0;
+	const int _maxHungerCycle = 5;
+
 	int _age;
 	const int _maxAge;
 	

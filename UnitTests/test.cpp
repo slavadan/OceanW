@@ -75,8 +75,8 @@ TEST(SqareTest, SqarePlanktonAndPredator)
 TEST(sdf, sdf1)
 {
 	Game game(4, 4, 6);
-
-	int a = 5;
-
 	
+	game.SelectCitizen();
+	
+	game.selectedCitizen->Move(Citizen::Direction::RIGHT);
 }

@@ -23,8 +23,6 @@ bool Game::SpawnCitizen(int citizenClass, Vector2& pos)
 		return false;
 	}
 
-	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
-
 	if (_map[pos.y][pos.x].GetIn(citizen))
 	{
 		_citizenList.push_back(citizen);
@@ -32,6 +30,119 @@ bool Game::SpawnCitizen(int citizenClass, Vector2& pos)
 	else
 		return false;
 
+}
+
+void Game::MoveUpdate(Citizen* citizen, Vector2 OldCoords)
+{
+	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
+
+	Vector2 NowCoords = citizen->GetPosition();
+
+	if (myPlankton)
+	{
+		if (_map[NowCoords.y][NowCoords.x].GetPlantCount() < 1)
+		{
+			_map[NowCoords.y][NowCoords.x].GetIn(citizen);
+			_map[OldCoords.y][OldCoords.x].GetOff(citizen);
+			return;
+		}
+	}
+	else
+	{
+		if (_map[NowCoords.y][NowCoords.x].GetPredatorCount() < 4)
+		{
+			_map[NowCoords.y][NowCoords.x].GetIn(citizen);
+			_map[OldCoords.y][OldCoords.x].GetOff(citizen);
+			return;
+		}
+	}
+
+	citizen->SetPosition(OldCoords);
+
+}
+
+void Game::DeathUpdate(Citizen* citizen)
+{
+	Vector2 coords = citizen->GetPosition();
+	_map[coords.y][coords.x].GetOff(citizen);
+	
+}
+
+void Game::SpawnUpdate(Citizen* citizen)
+{
+	Plankton* myPlankton = dynamic_cast<Plankton*>(citizen);
+	Vector2 position = citizen->GetPosition();
+
+	int citizenClassID = citizen->GetClassID();
+
+	if (myPlankton)
+	{
+		if (_map[position.y][position.x + 1].GetPlantCount() == 0)
+			position.x++;
+		else if (_map[position.y][position.x - 1].GetPlantCount() == 0)
+			position.x--;
+		else if (_map[position.y - 1][position.x].GetPlantCount() == 0)
+			position.y--;
+		else if(_map[position.y + 1][position.x].GetPlantCount() == 0)
+			position.y++;
+		else if (_map[position.y + 1][position.x + 1].GetPlantCount() == 0)
+		{
+			position.y++;
+			position.x++;
+		}
+		else if (_map[position.y - 1][position.x - 1].GetPlantCount() == 0)
+		{
+			position.y--;
+			position.x--;
+		}
+		else if (_map[position.y - 1][position.x + 1].GetPlantCount() == 0)
+		{
+			position.y--;
+			position.x++;
+		}
+		else if (_map[position.y + 1][position.x - 1].GetPlantCount() == 0)
+		{
+			position.y++;
+			position.x--;
+		}
+	}
+	else
+	{
+		if (_map[position.y][position.x].GetCitizenCount() < 4)
+		{
+			SpawnCitizen(citizen->GetClassID(), position);
+			return;
+		}
+		else if (_map[position.y][position.x + 1].GetCitizenCount() < 4)
+			position.x++;
+		else if (_map[position.y][position.x - 1].GetCitizenCount() < 4)
+			position.x--;
+		else if (_map[position.y - 1][position.x].GetCitizenCount() < 4)
+			position.y--;
+		else if (_map[position.y + 1][position.x].GetCitizenCount() < 4)
+			position.y++;
+		else if (_map[position.y + 1][position.x + 1].GetCitizenCount() < 4)
+		{
+			position.y++;
+			position.x++;
+		}
+		else if (_map[position.y - 1][position.x - 1].GetCitizenCount() < 4)
+		{
+			position.y--;
+			position.x--;
+		}
+		else if (_map[position.y - 1][position.x + 1].GetCitizenCount() < 4)
+		{
+			position.y--;
+			position.x++;
+		}
+		else if (_map[position.y + 1][position.x - 1].GetCitizenCount() < 4)
+		{
+			position.y++;
+			position.x--;
+		}
+	}
+	SpawnCitizen(citizenClassID, position);
 }
 
 void Game::Generate()

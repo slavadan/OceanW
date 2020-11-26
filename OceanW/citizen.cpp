@@ -1,9 +1,11 @@
 #include "citizen.h"
 
-bool Citizen::Move(Direction direction)
+void Citizen::Move(Direction direction)
 {
 	if (!HasActionPoints())
-		return false;
+		return;
+
+	Vector2 oldCoords = this->GetPosition();
 
 	switch (direction)
 	{
@@ -25,7 +27,37 @@ bool Citizen::Move(Direction direction)
 	}
 
 	_actionPoints--;
-	//Notify(EVENT::MOVE, this);
-	return true;
+	Notify(EVENT::MOVE, oldCoords);
+	return;
 	
+}
+
+void Citizen::Notify(EVENT type, Vector2 OldCoords)
+{
+	std::list<IObserver*>::iterator iterator = _observerList.begin();
+
+	switch (type)
+	{
+	case EVENT::MOVE:
+		while (iterator != _observerList.end())
+		{
+			(*iterator)->MoveUpdate(this, OldCoords);
+			iterator++;
+		}
+	break;
+
+	case EVENT::DEATH:
+		while (iterator != _observerList.end())
+		{
+			(*iterator)->DeathUpdate(this);
+			iterator++;
+		}
+
+	case EVENT::SPAWN:
+		while (iterator != _observerList.end())
+		{
+			(*iterator)->SpawnUpdate(this);
+			iterator++;
+		}
+	}
 }
